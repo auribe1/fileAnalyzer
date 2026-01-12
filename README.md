@@ -30,7 +30,7 @@ youre : 12
 
 Inside the output.csv file:
 
-Source file:,C:\Users\Ariel\OneDrive\Desktop\ReEntry\fileReading\sample.txt
+Source file:, Input File path goes here
 
 word,count
 
