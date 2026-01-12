@@ -19,9 +19,13 @@ Inside the output.txt file:
 File name: sample.txt
 
 that : 20 
-and : 18 
+
+and : 18
+
 out : 14 
+
 for : 12 
+
 youre : 12 
 
 Inside the output.csv file:
@@ -29,10 +33,15 @@ Inside the output.csv file:
 Source file:,C:\Users\Ariel\OneDrive\Desktop\ReEntry\fileReading\sample.txt
 
 word,count
+
 that,20
+
 and,18
+
 out,14
+
 for,12
+
 youre,12
 
 Features:
