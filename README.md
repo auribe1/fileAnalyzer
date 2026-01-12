@@ -1,15 +1,27 @@
 # fileAnalyzer
-Simple text file analyzer in python.
 
-What it does
+A simple Python text file analyzer that reads a `.txt` file, normalizes the text, counts word frequency, and exports results to `output.txt` and `output.csv`.
 
-The file analyzer reads from a sample.txt file, which currently contains part of the Bee Movie, normalizes the text by making it lower case and stripping punctuation, splitting it into a list of words, and then storing the count of each word in a dictionary, which is then used to output into an output CSV and output text file.
+## What it does
+- Reads an input text file
+- Normalizes text (lowercase + strips punctuation)
+- Splits into words
+- Filters stopwords
+- Counts word frequency
+- Writes:
+  - `output.txt` (human-readable)
+  - `output.csv` (spreadsheet-friendly)
+- Includes unit tests for core helper functions
 
-How to run it
-1. update sample.txt with whatever file you want to read.
-2. update the inputPath so that we can find the text file you'd like to analyze. This will eventually be removed and become user input.
-3. update the stop words to remove any particular words you'd like to ignore.
-4. run py analyzer.py in your terminal 
+## How to run
+1. Put the text you want to analyze into `sample.txt` (or point to another file).
+2. Update `inputPath` in `analyzer.py` to the path of your input file (planned improvement: CLI args).
+3. (Optional) Update `STOP_WORDS` to filter additional words.
+4. Run:
+
+```bash
+python analyzer.py
+
 
 Example output
 
