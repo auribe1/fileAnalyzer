@@ -17,12 +17,12 @@ A simple Python text file analyzer that reads a `.txt` file, normalizes the text
 1. Put the text you want to analyze into `sample.txt` (or point to another file).
 2. Update `inputPath` in `analyzer.py` to the path of your input file (planned improvement: CLI args).
 3. (Optional) Update `STOP_WORDS` to filter additional words.
-4. Run:
-
-python analyzer.py
+4. Run: python analyzer.py
 
 Terminal will print the name of the file you read in this case "File name: sample.txt"
+
 Inside the output.txt file:
+
 ```
 File name: sample.txt
 
@@ -37,6 +37,7 @@ for : 12
 youre : 12 
 ```
 Inside the output.csv file:
+
 ```
 Source file:,C:\Users\Ariel\OneDrive\Desktop\ReEntry\fileReading\sample.txt
 
@@ -54,8 +55,14 @@ youre,12
 ```
 ## Features:
 -File reading
+
 -Text normalization (lowercase + punctuation stripping)
+
+
 -Stopword filtering
+
 -Word frequency counting
+
 -CSV export
+
 -Unit tests
