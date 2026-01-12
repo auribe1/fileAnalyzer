@@ -1,29 +1,21 @@
 # fileAnalyzer
+Simple text file analyzer in python.
 
-A simple Python text file analyzer that reads a `.txt` file, normalizes the text, counts word frequency, and exports results to `output.txt` and `output.csv`.
+What it does
 
-## What it does
-- Reads an input text file
-- Normalizes text (lowercase + strips punctuation)
-- Splits into words
-- Filters stopwords
-- Counts word frequency
-- Writes:
-  - `output.txt` (human-readable)
-  - `output.csv` (spreadsheet-friendly)
-- Includes unit tests for core helper functions
+The file analyzer reads from a sample.txt file, which currently contains part of the Bee Movie, normalizes the text by making it lower case and stripping punctuation, splitting it into a list of words, and then storing the count of each word in a dictionary, which is then used to output into an output CSV and output text file.
 
-## How to run
-1. Put the text you want to analyze into `sample.txt` (or point to another file).
-2. Update `inputPath` in `analyzer.py` to the path of your input file (planned improvement: CLI args).
-3. (Optional) Update `STOP_WORDS` to filter additional words.
-4. Run: python analyzer.py
+How to run it
+1. update sample.txt with whatever file you want to read.
+2. update the stop words to remove any particular words you'd like to ignore.
+3. run python analyzer.py sample.txt --top 20 --out output.csv --outtxt output.txt in your terminal. (Could also run python analyzer.py sample.txt and everything will be default.)
+the arguments can be customized, first you can change the number of words you want to see, the csv file to output to, the text output file.
+
+Example output
 
 Terminal will print the name of the file you read in this case "File name: sample.txt"
-
 Inside the output.txt file:
 
-```
 File name: sample.txt
 
 that : 20 
@@ -35,10 +27,9 @@ out : 14
 for : 12 
 
 youre : 12 
-```
+
 Inside the output.csv file:
 
-```
 Source file:,C:\Users\Ariel\OneDrive\Desktop\ReEntry\fileReading\sample.txt
 
 word,count
@@ -52,17 +43,10 @@ out,14
 for,12
 
 youre,12
-```
-## Features:
--File reading
 
--Text normalization (lowercase + punctuation stripping)
-
-
--Stopword filtering
-
--Word frequency counting
-
--CSV export
-
--Unit tests
+Features:
+- stopwords
+- punctuation stripping
+- file reading
+- CSV export
+- unit tests

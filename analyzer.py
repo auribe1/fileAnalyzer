@@ -1,12 +1,26 @@
 import string
 import csv
 from pathlib import Path
+import argparse
+
 
 #list of words we don't want
 STOPWORDS = {
     "the", "a", "an", "and" "or", "but", "to", "of", "in", "is", "are", "was", "were", "be", "been", "by", "from", "you", "i", "what", "it"
 }
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Analyze a text file and output word frequency")
+
+    parser.add_argument("inputFile", help="Path to the input .txt file to analyze")
+
+    parser.add_argument("--top", type=int, default=10, help= "Number of top results to return (default: 10)")
+
+    parser.add_argument("--out", default="output.csv", help="Path to output CSV file (default: output.csv)")
+
+    parser.add_argument("--outtxt", default="output.txt", help="Path to output TXT summary file (default: output.txt)")
+
+    return parser.parse_args()
 #return each w if for each w in words, w is not in the stop words
 def filterWords(words, stop_words=STOPWORDS):
     return [w for w in words if w not in stop_words and len(w) > 2]
@@ -60,19 +74,21 @@ def analyze_file(filepath, top_n = 5):
 
 if __name__ == "__main__":
 
+    args = parse_args()
+    inputPath = Path(args.inputFile)
+
+    outCSV = inputPath.parent / args.out
+    outTxt = inputPath.parent / args.outtxt
 
     try:
-       inputPath = Path(r"C:\Users\Ariel\OneDrive\Desktop\ReEntry\fileReading\sample.txt")
-
-       outPath = inputPath.parent / "output.txt"
-       outCSV = inputPath.parent / "output.csv"
+       
        #passing in the absolute file path, saying r"" tells the computer that it can handle single \ instead of double. the second value is the number of words we want from our list.
-       results = analyze_file(inputPath,top_n=5)
+       results = analyze_file(inputPath,top_n=args.top)
        #function takes our results and file path of csv file and writes to it
        saveToCSV(results, outCSV, inputPath)
        print("wrote to :", outCSV)
        #open output txt and write to it using utf8 encoding. If it doesn't already exist, it makes the file for you.
-       with open(outPath, "w", encoding="utf-8") as f:
+       with open(outTxt, "w", encoding="utf-8") as f:
         f.write(f"File name: {inputPath.name}\n\n")
         #for each touple, write to the file using the following format: word : count new line
         for word, count in results:
